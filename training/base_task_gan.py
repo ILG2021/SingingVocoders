@@ -213,7 +213,7 @@ class GanBaseTask(pl.LightningModule):
         #     raise RuntimeError("")
 
         if pre_train_ckpt_path is not None:
-            ckpt = torch.load(pre_train_ckpt_path)
+            ckpt = torch.load(pre_train_ckpt_path, map_location=torch.device('cpu'))
 
             state_dict = {}
             for i in ckpt['state_dict']:
